@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha anjinha</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: linear-gradient(to bottom, #444, black);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+            max-width: 600px;
+        }
+        h1 {
+            color: #ff4d6d;
+            font-size: 26px;
+        }
+        #contador {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #ffcccb;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            border: 3px solid #ff4d6d;
+        }
+        #frase {
+            margin-top: 10px;
+            font-size: 18px;
+            font-style: italic;
+            color: #ffcccb;
+            padding: 10px;
+            border-left: 4px solid #ff4d6d;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: inline-block;
+        }
+        audio {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>EU TE AMO!</h1>
+        <img src="nos.jpg" alt="<3">
+        <p id="frase">"Sempre que eu penso que poderia estar perdido, me lembro de você chegar em minha vida e mudar tudo, obrigado por ser essa pessoa tão especial, minha princesa, minha menina, eu te amo muito e sempre vou te amar, independente de qualquer coisa, vou estar contigo sempre. Eu te amooo!!! <3."</p>
+        <div id="contador"></div>
+        <audio controls>
+            <source src="meuanjinho.mp3" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+    </div>
+
+    <script>
+        function atualizarContador() {
+            let dataInicio = new Date("2023-04-18T00:00:00"); // Coloque a data que se conheceram
+            let agora = new Date();
+            let diferenca = agora - dataInicio;
+
+            let anos = Math.floor(diferenca / (1000 * 60 * 60 * 24 * 365));
+            let dias = Math.floor((diferenca / (1000 * 60 * 60 * 24)) % 365);
+            let horas = Math.floor((diferenca / (1000 * 60 * 60)) % 24);
+            let minutos = Math.floor((diferenca / (1000 * 60)) % 60);
+            let segundos = Math.floor((diferenca / 1000) % 60);
+
+            document.getElementById("contador").innerHTML = 
+                `Eu te amo há: ${anos} ano, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos.`;
+        }
+        setInterval(atualizarContador, 1000);
+        atualizarContador();
+    </script>
+</body>
+</html>
